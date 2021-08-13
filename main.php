@@ -13,7 +13,7 @@
         $b->addAnimal(new Chicken);
         if ($i < 7)
         {
-            $b->addAnimal(new Collector); // Добавляем коров в хлев
+            $b->addAnimal(new Cow); // Добавляем коров в хлев
         }
     }
 
