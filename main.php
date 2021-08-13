@@ -5,21 +5,16 @@
     require_once 'classes/Collector.php';
 
     $b = new Barn(); // создаем объект Хлев
-
-    /*
-     * Добавляем коров в хлев
-     */
-    for ($i = 0; $i < 7; $i++)
-    {
-        $b->addAnimal(new Cow);
-    }
-
     /*
      * Добавляем куриц в хлев
      */
     for ($i = 0; $i < 15; $i++)
     {
         $b->addAnimal(new Chicken);
+        if ($i < 7)
+        {
+            $b->addAnimal(new Collector); // Добавляем коров в хлев
+        }
     }
 
     $col = new Collector(); // создаем обЪект автосборщика
