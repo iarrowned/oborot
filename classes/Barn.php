@@ -16,13 +16,16 @@ class Barn
 
     /**
      * Добавить животного в хлев
-     * @param object $animal
+     * @param mixed $animal
      */
-    public function addAnimal(object $animal)
+    public function addAnimal($animal)
     {
-        if (get_class($animal) == 'Cow') $this->cows[] = $animal;
-        elseif (get_class($animal) == 'Chicken') $this->chickens[] = $animal;
-        else die("adding error");
+        if (is_object($animal))
+        {
+            if (get_class($animal) == 'Cow') $this->cows[] = $animal;
+            elseif (get_class($animal) == 'Chicken') $this->chickens[] = $animal;
+            else die("Parameter must be object of Cow or Chicken");
+        }
     }
 
     /**
